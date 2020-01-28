@@ -2,8 +2,7 @@ const mongoose = require('mongoose');
 
 const DevSchema = new mongoose.Schema({
     name :{
-        type: String,
-        required: true,        
+        type: String,        
     },
     github_username: {
         type: String,
@@ -23,4 +22,6 @@ const DevSchema = new mongoose.Schema({
 
 });
 
-module.exports = mongoose.model('Dev', DevSchema)
+const Dev = mongoose.model('Dev', DevSchema);
+
+module.exports = Dev; 

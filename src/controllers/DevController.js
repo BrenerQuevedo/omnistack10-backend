@@ -1,5 +1,7 @@
 const axios = require('axios');
 const Dev = require('../models/Dev');
+const parseString = require('../utils/parseStringAsArray'); 
+
 
 module.exports = {
     async store(req, res) {
@@ -20,7 +22,7 @@ module.exports = {
                 coordinates: [latitude, longitude],
             };
         
-            const techsArray = techs.split(",").map(tech => tech.trim());
+            const techsArray = parseString(techs);
         
             //constante
             dev = await Dev.create({

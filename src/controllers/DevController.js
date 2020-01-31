@@ -34,5 +34,10 @@ module.exports = {
         }
 
         return res.json(dev);
-    }     
+    },
+    
+    async index(req, res) {
+        const devs = Dev.find();
+        return res.json(devs);
+    }
 };

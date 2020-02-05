@@ -41,5 +41,19 @@ module.exports = {
     async index(req, res) {
         const devs = await Dev.find();
         return res.json(devs);
+    },
+
+
+    //atualiza um dev, exceto seu github_username
+    async update(req, res){
+
+    },
+
+    //deleta um dev
+    async destroy(req, res){
+
     }
+
+
 };
+

@@ -46,12 +46,30 @@ module.exports = {
 
     //atualiza um dev, exceto seu github_username
     async update(req, res){
+        const {id} = req.params;
+        const data = req.body;
 
+        if(data.techs){
+            data.techs = parseString(data.techs);
+        }
+
+        //deleta o campo de username impossibilitando a mudança do mesmo
+        if(data.github_username) {
+            delete data.github_username;
+        }
+
+        const dev = await Dev.findByIdAndUpdate(id, data, {new:true});
+
+        return res.json(dev);
     },
-
+    
     //deleta um dev
     async destroy(req, res){
+        const {id} = req.params;
+        
+        await Dev.findByIdAndDelete(id);
 
+        return res.json({message: "user removed"});
     }
 
 

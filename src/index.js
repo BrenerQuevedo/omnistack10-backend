@@ -2,8 +2,10 @@ const express =  require('express');
 const mongoose = require('mongoose');
 const routes = require('./routes')
 const cors = require('cors')
+const http = require("http");
 
 const app = express();
+const server = http.Server(app);
 
 mongoose.connect('mongodb+srv://omnistack:omnistack@omnistack-sm6zk.mongodb.net/omnistack10?retryWrites=true&w=majority', 
  { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex:true });
